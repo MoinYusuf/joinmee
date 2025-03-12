@@ -1,8 +1,5 @@
 <template>
   <div>
-    <head>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
     <div class="container mt-5">
       <div class="row">
         <!-- Registrierungsformular -->
@@ -48,7 +45,6 @@
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </div>
 </template>
 
@@ -56,9 +52,10 @@
 import { ref } from 'vue'
 import { createClient } from '@supabase/supabase-js'
 
+const config = useRuntimeConfig()
 const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_KEY
+  config.public.SUPABASE_URL,
+  config.public.SUPABASE_KEY
 )
 
 const registerForm = ref({
